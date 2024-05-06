@@ -90,21 +90,6 @@ export default function App() {
   const [itemName, setItemName] = useState("");
   const [showAddItemForm, setShowAddItemForm] = useState(false);
 
-  const onAddContainer = () => {
-    if (!containerName) return;
-    const id = `container-${uuidv4()}`;
-    setContainers([
-      ...containers,
-      {
-        id,
-        title: containerName,
-        items: [],
-      },
-    ]);
-    setContainerName("");
-    setShowAddContainerModal(false);
-  };
-
   const onAddItem = () => {
     if (!itemName) return;
     const id = `item-${uuidv4()}`;
