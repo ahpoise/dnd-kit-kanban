@@ -86,7 +86,6 @@ export default function App() {
   ]);
   const [activeId, setActiveId] = useState(null);
   const [currentContainerId, setCurrentContainerId] = useState();
-  const [containerName, setContainerName] = useState("");
   const [itemName, setItemName] = useState("");
   const [showAddItemForm, setShowAddItemForm] = useState(false);
 
@@ -124,18 +123,6 @@ export default function App() {
     return item.title;
   };
 
-  const findContainerTitle = (id) => {
-    const container = findValueOfItems(id, "container");
-    if (!container) return "";
-    return container.title;
-  };
-
-  const findContainerItems = (id) => {
-    const container = findValueOfItems(id, "container");
-    if (!container) return [];
-    return container.items;
-  };
-
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -148,6 +135,7 @@ export default function App() {
     const { id } = active;
     setActiveId(id);
   };
+
   const handleDragMove = (e) => {
     const { active, over } = e;
 
